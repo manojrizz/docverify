@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ABP Work From Home Dashboard - Manage your handwriting projects and verification status." />
+  <title>Dashboard | ABP Work From Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-pen-fancy logo-icon"></i>
+          <h1>ABP Work From Home</h1>
+        </div>
+        <div class="user-menu">
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">1</span>
+          </div>
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Profile">
+            <span>Kumar</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="dropdown-menu">
+              <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+              <a href="#"><i class="fas fa-cog"></i> Settings</a>
+              <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active">
+            <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-tasks"></i> My Projects</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-file-invoice"></i> Payments</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user-check"></i> Verification</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-question-circle"></i> Support</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="dashboard-content">
+      <div class="dashboard-header-bar">
+        <h2>Dashboard</h2>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> / <span>Dashboard</span>
+        </div>
+      </div>
+
+      <div class="alert-banner">
+        <i class="fas fa-shield-alt"></i>
+        <div class="alert-content">
+          <h3>SECURITY VERIFICATION REQUIRED</h3>
+          <p>Your account requires additional verification before you can access projects.</p>
+        </div>
+        <button class="alert-action" onclick="showVerificationForm()">Complete Verification</button>
+      </div>
+
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="stat-details">
+            <h3>Projects</h3>
+            <p class="stat-value">0</p>
+            <p class="stat-status">Pending Verification</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <div class="stat-details">
+            <h3>Earnings</h3>
+            <p class="stat-value">₹0.00</p>
+            <p class="stat-status">Pending Verification</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-user-check"></i>
+          </div>
+          <div class="stat-details">
+            <h3>Verification</h3>
+            <p class="stat-value">Incomplete</p>
+            <p class="stat-status">Action Required</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-details">
+            <h3>Account Status</h3>
+            <p class="stat-value">Limited</p>
+            <p class="stat-status">Pending Verification</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-welcome">
+        <h2>Welcome to ABP Work From Home, Kumar!</h2>
+        <p>Your account has been created successfully. To start working on projects and earning income, please complete the verification process by clicking the button below.</p>
+        <button class="cta-button" onclick="showVerificationForm()">Complete Verification Now</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Verification Form Popup -->
+  <div id="verificationPopup" class="popup-overlay">
+    <div class="popup-content">
+      <!-- Step 1: User Details Form -->
+      <div id="step1" class="form-step active">
+        <div class="form-header">
+          <h2>Verification Form</h2>
+          <button class="close-btn" onclick="closeVerificationForm()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="form-progress">
+          <div class="progress-step active">
+            <div class="step-number">1</div>
+            <div class="step-label">Personal Details</div>
+          </div>
+          <div class="progress-line"></div>
+          <div class="progress-step">
+            <div class="step-number">2</div>
+            <div class="step-label">Processing</div>
+          </div>
+          <div class="progress-line"></div>
+          <div class="progress-step">
+            <div class="step-number">3</div>
+            <div class="step-label">Payment</div>
+          </div>
+          <div class="progress-line"></div>
+          <div class="progress-step">
+            <div class="step-number">4</div>
+            <div class="step-label">Complete</div>
+          </div>
+        </div>
+        <form id="userDetailsForm">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" required placeholder="Enter your first name">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" required placeholder="Enter your last name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required placeholder="Enter your phone number">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required placeholder="Enter your email address">
+          </div>
+          <div class="form-group">
+            <label for="uvn">UVN Number</label>
+            <input type="text" id="uvn" required placeholder="Enter your UVN number">
+            <div class="input-help">
+              <i class="fas fa-question-circle"></i>
+              <span class="tooltip">Your Unique Verification Number can be found in your welcome email</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" required placeholder="Enter your username" value="kumar" readonly>
+          </div>
+          <div class="form-group">
+            <label for="cin">CIN Number</label>
+            <input type="text" id="cin" required placeholder="Enter your CIN number">
+            <div class="input-help">
+              <i class="fas fa-question-circle"></i>
+              <span class="tooltip">Customer Identification Number provided by ABP</span>
+            </div>
+          </div>
+          
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" required>
+              <span>I agree to the <a href="#">Terms & Conditions</a></span>
+            </label>
+            <label>
+              <input type="checkbox" required>
+              <span>I understand that my Personal Identifiable Information (PII) will be processed in accordance with the <a href="#">Privacy Policy</a></span>
+            </label>
+            <label>
+              <input type="checkbox" required>
+              <span>I hereby authorize ABP Corp to collect, process, and store my personal information for verification purposes</span>
+            </label>
+          </div>
+          
+          <button type="submit" class="submit-btn">Continue to Verification <i class="fas fa-arrow-right"></i></button>
+        </form>
+      </div>
+
+      <!-- Step 2: Loading -->
+      <div id="step2" class="form-step">
+        <div class="loader">
+          <div class="spinner"></div>
+          <h3>Processing Your Information</h3>
+          <p>Please wait while we verify your details...</p>
+          <div class="processing-status">
+            <div class="status-item complete">
+              <i class="fas fa-check-circle"></i>
+              <span>Receiving data</span>
+            </div>
+            <div class="status-item active">
+              <i class="fas fa-circle-notch fa-spin"></i>
+              <span>Validating information</span>
+            </div>
+            <div class="status-item">
+              <i class="far fa-circle"></i>
+              <span>Checking eligibility</span>
+            </div>
+            <div class="status-item">
+              <i class="far fa-circle"></i>
+              <span>Preparing verification</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Payment -->
+      <div id="step3" class="form-step">
+        <div class="form-header">
+          <h2>Complete Verification</h2>
+          <button class="close-btn" onclick="closeVerificationForm()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="form-progress">
+          <div class="progress-step complete">
+            <div class="step-number"><i class="fas fa-check"></i></div>
+            <div class="step-label">Personal Details</div>
+          </div>
+          <div class="progress-line complete"></div>
+          <div class="progress-step complete">
+            <div class="step-number"><i class="fas fa-check"></i></div>
+            <div class="step-label">Processing</div>
+          </div>
+          <div class="progress-line complete"></div>
+          <div class="progress-step active">
+            <div class="step-number">3</div>
+            <div class="step-label">Payment</div>
+          </div>
+          <div class="progress-line"></div>
+          <div class="progress-step">
+            <div class="step-number">4</div>
+            <div class="step-label">Complete</div>
+          </div>
+        </div>
+        <div class="payment-info">
+          <div class="verification-message">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Security Deposit Required</h3>
+            <p>To proceed with the verification process and ensure commitment, a fully refundable security deposit is required.</p>
+          </div>
+          
+          <div class="payment-amount">
+            <span class="amount-label">Security Deposit Amount:</span>
+            <span class="amount">₹500.00</span>
+            <span class="refund-tag">Fully Refundable</span>
+          </div>
+          
+          <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=example@upi&pn=ADB%20Corp&am=500" alt="UPI QR Code">
+            <p class="qr-name">ADB Corp</p>
+          </div>
+          
+          <div class="payment-notes">
+            <h4>Important Notes:</h4>
+            <ul>
+              <li><i class="fas fa-check-circle"></i> Security deposit is fully refundable with your first payment</li>
+              <li><i class="fas fa-check-circle"></i> This ensures serious applicants and material security</li>
+              <li><i class="fas fa-check-circle"></i> Keep payment screenshot for your records</li>
+              <li><i class="fas fa-check-circle"></i> Use UPI ID: adbcorp@upi for payment</li>
+            </ul>
+          </div>
+          
+          <div class

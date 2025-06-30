@@ -1,0 +1,534 @@
+/* verification.css */
+
+/* Main Container */
+.verification-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    color: white;
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.2);
+}
+
+.welcome-banner-content {
+    flex: 1;
+}
+
+.welcome-banner-content h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.welcome-banner-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.welcome-banner-image {
+    flex: 0 0 200px;
+    margin-left: 30px;
+}
+
+.welcome-banner-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Verification Status */
+.verification-status {
+    background-color: #eff6ff;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    color: #1e40af;
+}
+
+.verification-status i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+/* Verification Steps */
+.verification-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.verification-steps::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #e2e8f0;
+    z-index: 1;
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    flex: 1;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-weight: 600;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.step-title {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+
+.step.active .step-number {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+    color: white;
+}
+
+.step.active .step-title {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.step.completed .step-number {
+    background-color: #10b981;
+    border-color: #10b981;
+    color: white;
+}
+
+.step.completed .step-number::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+/* Form Container */
+.verification-form-container {
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.verification-form-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: #1e293b;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section-title {
+    font-size: 1.2rem;
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #334155;
+}
+
+.form-group.required label::after {
+    content: '*';
+    color: #ef4444;
+    margin-left: 4px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4f46e5;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* File Upload */
+.file-upload {
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload:hover {
+    border-color: #4f46e5;
+    background-color: rgba(79, 70, 229, 0.02);
+}
+
+.file-upload i {
+    font-size: 2.5rem;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.file-upload p {
+    margin-bottom: 5px;
+    color: #334155;
+}
+
+.file-restrictions {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn i:last-child {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #cbd5e1;
+    color: #64748b;
+}
+
+.btn-outline:hover {
+    border-color: #4f46e5;
+    color: #4f46e5;
+    background-color: rgba(79, 70, 229, 0.05);
+}
+
+/* Help Section */
+.help-section {
+    background-color: #f8fafc;
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+.help-section h3 {
+    font-size: 1.2rem;
+    color: #334155;
+    margin-bottom: 15px;
+}
+
+.help-section p {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.help-contact {
+    display: flex;
+    gap: 20px;
+}
+
+.help-contact a {
+    display: flex;
+    align-items: center;
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.help-contact a i {
+    margin-right: 8px;
+}
+
+.help-contact a:hover {
+    text-decoration: underline;
+}
+
+/* Skills Assessment Styles */
+.sample-text {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.paragraph-to-write {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #1e293b;
+}
+
+/* Payment Section Styles */
+.payment-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.qr-code {
+    text-align: center;
+}
+
+.qr-code img {
+    max-width: 100%;
+    height: auto;
+}
+
+.payment-details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.payment-details li {
+    margin-bottom: 10px;
+}
+
+.payment-notes {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Status Message Styles */
+.status-message {
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.status-message.success {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+}
+
+.status-message i {
+    font-size: 3rem;
+    color: #10b981;
+    margin-bottom: 20px;
+}
+
+.status-message h3 {
+    color: #065f46;
+    margin-bottom: 15px;
+}
+
+.status-message ul {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.status-message li {
+    margin-bottom: 10px;
+    color: #047857;
+}
+
+/* Error Status Styles */
+.status-message.error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+.status-message.error i {
+    color: #ef4444;
+}
+
+.status-message.error h3 {
+    color: #991b1b;
+}
+
+.error-details {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.error-details .score {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+.error-details .required {
+    color: #059669;
+    font-weight: 600;
+}
+
+.next-steps {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.next-steps h4 {
+    color: #991b1b;
+    margin-bottom: 10px;
+}
+
+.next-steps ul {
+    color: #7f1d1d;
+}
+
+/* Error message for file upload */
+.error-message {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .welcome-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-banner-image {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .verification-steps {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .step {
+        min-width: 120px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .help-contact {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .payment-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* For the failed verification status (commented out in HTML) */
+#failedVerificationSection .status-message.error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+#failedVerificationSection .status-message.error i {
+    color: #ef4444;
+}
+
+#failedVerificationSection .status-message.error h3 {
+    color: #991b1b;
+}
